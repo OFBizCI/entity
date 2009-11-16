@@ -37,10 +37,7 @@ under the License.
         <fileset dir="../base/lib/j2eespecs" includes="*.jar"/>
         <fileset dir="../base/lib/scripting" includes="*.jar"/>
         <fileset dir="../base/build/lib" includes="*.jar"/>
-    </path>
-    <path id="src-path">
-        <pathelement location="build/gen-src/javacc"/>
-        <pathelement location="build/gen-src/jjtree"/>
+        <fileset dir="../sql/build/lib" includes="*.jar"/>
     </path>
 
     <patternset id="src.exc.set">
@@ -52,11 +49,7 @@ under the License.
     <!-- Compilation of the source files                                                                                                                         -->
     <!-- ================================================================== -->
 
-    <target name="gen-src">
-        <ofbiz-javacc dir="org/ofbiz/entity/sql" file="Parser"/>
-    </target>
-
-    <target name="classes" depends="prepare,gen-src">
+    <target name="classes" depends="prepare">
         <javac15/>
     </target>
 
